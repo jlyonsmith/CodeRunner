@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	Copyright (c) John Lyon-Smith.  All rights reserved.
+-->
+<Include>
+	<?define CodeRunnerVersion = "4.1"?>
+	<?define CodeRunnerBuild = "30413"?>
+
+	<?if $(var.Configuration) = "Debug" ?>
+    <?define SpaceParenDebug = " (Debug)" ?>
+    <?define DebugOrReleaseDir = "Debug\" ?>
+	<?else ?>
+    <?define SpaceParenDebug = "" ?>
+  <?define DebugOrReleaseDir = "Release\" ?>
+  <?endif ?>
+
+  <?define CsrDir = "..\Csr\bin\$(var.DebugOrReleaseDir)" ?>
+  <?define ScaffoldDir = "..\Scaffold\bin\$(var.DebugOrReleaseDir)" ?>
+	<?define CodeRunnerDir = "..\CodeRunner\bin\$(var.DebugOrReleaseDir)" ?>
+
+	<!-- We only build a release version of the resource DLL -->
+  <?define CodeRunnerIconsDir = "..\CodeRunnerIcons\Release\" ?>
+</Include>

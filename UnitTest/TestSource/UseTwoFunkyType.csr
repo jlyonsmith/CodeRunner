@@ -1,0 +1,26 @@
+/// <script>
+///  <vs>10.0</vs>
+///  <clr>4.0</clr>
+///  <fx>4.0</fx>
+///  <refs>
+///   <ref>$(ClrInstallPath)System.dll</ref>
+///   <ref>$(CodeRunnerPath)CodeRunner.dll</ref>
+///   <ref>$(CodeRunnerPath)ToolBelt.dll</ref>
+///   <ref>$(ScriptPath)1.0\FunkyType.dll</ref>
+///   <ref>$(ScriptPath)2.0\FunkyType.dll</ref>
+///  </refs>
+/// </script>
+
+extern alias F;
+
+using System;
+
+class MainClass
+{
+	public static void Main(string[] args)
+	{
+		F::FunkyType funky = new F::FunkyType();
+		
+		Console.WriteLine(funky.Funky);
+	}
+}

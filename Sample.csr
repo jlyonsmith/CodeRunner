@@ -1,0 +1,36 @@
+/// <script>
+///  <vs>10.0</vs>
+///  <clr>4.0</clr>
+///  <fx>4.0</fx>
+///  <refs>
+///   <ref>C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.CSharp.dll</ref>
+///   <ref>C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Core.dll</ref>
+///   <ref>C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Data.dll</ref>
+///   <ref>C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.dll</ref>
+///   <ref>C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Xml.dll</ref>
+///   <ref>C:\Projects\CodeRunner\4.0\Scaffold\bin\Debug\CodeRunner.dll</ref>
+///   <ref>C:\Projects\CodeRunner\4.0\Scaffold\bin\Debug\ToolBelt.dll</ref>
+///  </refs>
+/// </script>
+
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+using CodeRunner;
+using ToolBelt;
+
+public class Program
+{
+	public static int Main(string[] args)
+	{
+		if (args.Length == 0)
+		{
+			Console.WriteLine("Usage: {0}", ScriptEnvironment.ScriptPath.FileAndExtension);
+			return 0;
+		}
+
+		return 0;
+	}
+}

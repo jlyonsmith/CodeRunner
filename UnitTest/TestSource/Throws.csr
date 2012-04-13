@@ -1,0 +1,24 @@
+/// <script>
+///  <vs>10.0</vs>
+///  <clr>4.0</clr>
+///  <fx>4.0</fx>
+///  <refs>
+///   <ref>$(FxReferenceAssemblyPath)Microsoft.CSharp.dll</ref>
+///   <ref>$(FxReferenceAssemblyPath)System.Core.dll</ref>
+///   <ref>$(FxReferenceAssemblyPath)System.Data.dll</ref>
+///   <ref>$(FxReferenceAssemblyPath)System.dll</ref>
+///   <ref>$(FxReferenceAssemblyPath)System.Xml.dll</ref>
+///   <ref>$(CodeRunnerPath)CodeRunner.dll</ref>
+///   <ref>$(CodeRunnerPath)ToolBelt.dll</ref>
+///  </refs>
+/// </script>
+
+using System;
+
+public class Program
+{
+	public static int Main(string[] args)
+	{
+		throw new NullReferenceException();
+	}
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9.00"
+	Name="FunkyType"
+	ProjectGUID="{E700F3C4-8702-4891-9957-D5EA132852EC}"
+	RootNamespace="FunkyType"
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="131072"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="$(ProjectDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ProjectDir)$(ConfigurationName)"
+			ConfigurationType="0"
+			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="msbuild /t:Build $(ProjectName).proj"
+				ReBuildCommandLine="msbuild /t:Rebuild $(ProjectName).proj"
+				CleanCommandLine="msbuild /t:Clean $(ProjectName).proj"
+				Output="$(ProjectDir)\1.0\FunkyType.dll;$(ProjectDir)\2.0\FunkyType.dll"
+				PreprocessorDefinitions=""
+				IncludeSearchPath=""
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="1.0"
+			>
+			<File
+				RelativePath=".\1.0\FunkyType.cs"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="2.0"
+			>
+			<File
+				RelativePath=".\2.0\FunkyType.cs"
+				>
+			</File>
+		</Filter>
+		<File
+			RelativePath=".\FunkyType.proj"
+			>
+		</File>
+		<File
+			RelativePath=".\funkytype.snk"
+			>
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

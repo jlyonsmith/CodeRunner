@@ -1,0 +1,85 @@
+/// <script>
+///  <vs>10.0</vs>
+///  <clr>4.0</clr>
+///  <fx>4.0</fx>
+///  <refs>
+///   <ref>$(FxReferenceAssemblyPath)Microsoft.CSharp.dll</ref>
+///   <ref>$(FxReferenceAssemblyPath)System.Core.dll</ref>
+///   <ref>$(FxReferenceAssemblyPath)System.Data.dll</ref>
+///   <ref>$(FxReferenceAssemblyPath)System.dll</ref>
+///   <ref>$(FxReferenceAssemblyPath)System.Xml.dll</ref>
+///   <ref>$(CodeRunnerPath)CodeRunner.dll</ref>
+///   <ref>$(CodeRunnerPath)ToolBelt.dll</ref>
+///  </refs>
+/// </script>
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.IO;
+using CodeRunner;
+using ToolBelt;
+
+public class Program
+{
+	public static int Main(string[] args)
+	{
+		string tbVer = "1.4";
+		
+		if (args.Length > 0)
+		{
+			tbVer = args[0];
+		}
+	
+        ParsedPath projRoot = GetProjectRootDirectory();
+        ParsedPath tbRoot = new ParsedPath(@"C:\Projects\Toaster\" + tbVer, PathType.Directory);
+        
+        string target = projRoot + @"Tools\";
+
+        Console.WriteLine("Copying Toaster/ToolBelt {0}:", tbVer);
+
+        CopyFile(tbRoot + @"ToolBelt\bin\Release\", target, "ToolBelt.dll");
+        CopyFile(tbRoot + @"ToolBelt\bin\Release\", target, "ToolBelt.pdb");
+        CopyFile(tbRoot + @"Toaster\bin\Release\", target, "Toaster.dll");
+        CopyFile(tbRoot + @"Toaster\bin\Release\", target, "Toaster.pdb");
+        CopyFile(tbRoot + @"Buckle\bin\Release\", target, "Buckle.exe");
+        CopyFile(tbRoot + @"Buckle\bin\Release\", target, "Buckle.pdb");
+        CopyFile(tbRoot + @"Buckle\", projRoot + @"Tools\", "ToolBelt.Buckle.targets");
+
+		return 0;
+	}
+	
+	static private void CopyFile(string fromDir, string toDir, string fileSpec)
+	{
+		string fromFile = fromDir + fileSpec;
+		string toFile = toDir + fileSpec;
+
+		File.Copy(fromFile, toFile, true);
+		
+		Console.WriteLine("Copied '{0}' to '{1}'", fromFile, toFile);
+	}
+	
+    static private ParsedPath GetProjectRootDirectory()
+    {
+        try
+        {
+            string rootFile = "*.sln";
+
+            FileInfo[] files = DirectoryUtility.GetFiles(rootFile, SearchScope.RecurseParentDirectories);
+
+            if (files.Length == 0)
+            {
+                Console.WriteLine("Unable to find file '{0}' to determine project root", rootFile);
+                return null;
+            }
+
+            return new ParsedPath(files[0].DirectoryName, PathType.Directory);
+            // The root directory of the drive will never be the project root
+        }
+        catch
+        {
+            return null;
+        }
+    }
+}

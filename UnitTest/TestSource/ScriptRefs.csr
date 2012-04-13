@@ -1,0 +1,21 @@
+/// <script>
+///  <vs>10.0</vs>
+///  <clr>2.0</clr>
+///  <fx>3.5</fx>
+///  <refs>
+///   <ref>$(ClrInstallPath)System.Data.dll</ref>
+///   <ref>$(ClrInstallPath)System.dll</ref>
+///   <ref>$(ClrInstallPath)System.Xml.dll</ref>
+///   <ref>$(CodeRunnerPath)CodeRunner.dll</ref>
+///   <ref>$(CodeRunnerPath)ToolBelt.dll</ref>
+///  </refs>
+/// </script>
+
+using System;
+
+class MainClass
+{
+	public static void Main(string[] args)
+	{
+	}
+}

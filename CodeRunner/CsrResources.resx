@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArgumentSwitchHint" xml:space="preserve">
+    <value>&lt;arguments&gt;</value>
+  </data>
+  <data name="CopyrightJohnLyonSmith" xml:space="preserve">
+    <value>Copyright (c) John Lyon-Smith 2010.  All rights reserved.</value>
+  </data>
+  <data name="CSharpCodeRunner" xml:space="preserve">
+    <value>C# Code Runner .NET</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>error: </value>
+  </data>
+  <data name="ErrorLine" xml:space="preserve">
+    <value>{0}({1},{2}): error {3}: {4}</value>
+  </data>
+  <data name="ExceptionDuringCompile" xml:space="preserve">
+    <value>Exception during script compilation. </value>
+  </data>
+  <data name="ExceptionFromScript" xml:space="preserve">
+    <value>Exception caught from script. {0}</value>
+  </data>
+  <data name="False" xml:space="preserve">
+    <value>false</value>
+  </data>
+  <data name="HelpSwitchDescription" xml:space="preserve">
+    <value>Displays this message.</value>
+  </data>
+  <data name="LocalResponseFilePath" xml:space="preserve">
+    <value>Local response file '{0}' ({1})</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>no</value>
+  </data>
+  <data name="NoEmptyFileName" xml:space="preserve">
+    <value>Script file name cannot be empty.</value>
+  </data>
+  <data name="NoScriptSpecified" xml:space="preserve">
+    <value>No script file specified.</value>
+  </data>
+  <data name="NoScriptWildcards" xml:space="preserve">
+    <value>Script name cannot contain wildcards.</value>
+  </data>
+  <data name="ProblemCheckingWriteTimes" xml:space="preserve">
+    <value>Problem checking last write times on script and response files</value>
+  </data>
+  <data name="CompilerResponseFilePath" xml:space="preserve">
+    <value>Compiler response file '{0}' ({1})</value>
+  </data>
+  <data name="ScriptFoundInPath" xml:space="preserve">
+    <value>Script file '{0}' found in PATH in directory '{1}'.</value>
+  </data>
+  <data name="ScriptNotFound" xml:space="preserve">
+    <value>Script file '{0}' not found.</value>
+  </data>
+  <data name="ScriptNotFoundInDirectoryOrPath" xml:space="preserve">
+    <value>Script file '{0}' not found in directory '{1}' or PATH.</value>
+  </data>
+  <data name="ScriptSwitchHint" xml:space="preserve">
+    <value>&lt;script-name&gt;[.csr|.cs]</value>
+  </data>
+  <data name="SharedResponseFilePath" xml:space="preserve">
+    <value>Shared response file '{0}' ({1})</value>
+  </data>
+  <data name="TooManySwitches" xml:space="preserve">
+    <value>Too many switches specified.</value>
+  </data>
+  <data name="True" xml:space="preserve">
+    <value>true</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>warning: </value>
+  </data>
+  <data name="CommandLineDescription" xml:space="preserve">
+    <value>Compiles and runs a C# program in one step.  The .csr/.cs extension is optional.  The remaining arguments after the source file name will be passed to the Main() method.  There is another csc.rsp next to csr.exe that contains the next level of assemblies.  If you need to reference additional assemblies just for a single script create a &lt;script-name&gt;.rsp file next to your script.  The scaffold will automatically create this file if you add a reference in VS while using a scaffold generated solution.  Csr will search the PATH environment variable directories for any script that is specified without a full or relative directory.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>yes</value>
+  </data>
+  <data name="Debug" xml:space="preserve">
+    <value>debug: </value>
+  </data>
+  <data name="Microsoft" xml:space="preserve">
+    <value>Microsoft</value>
+  </data>
+  <data name="ErrorParsingBooleanInConfig" xml:space="preserve">
+    <value>Error parsing boolean value '{0}' for setting '{1}' in .config</value>
+  </data>
+  <data name="ErrorParsingBooleanInEnvironment" xml:space="preserve">
+    <value>Error parsing value '{0}' for setting '{1}' from environment varible '{2}'</value>
+  </data>
+  <data name="ClrInstallPath" xml:space="preserve">
+    <value>CLR install path '{0}'</value>
+  </data>
+  <data name="NetFxInstallPath" xml:space="preserve">
+    <value>.NET install path '{0}'</value>
+  </data>
+  <data name="NetFxReferenceAssemblyPath" xml:space="preserve">
+    <value>.NET reference assembly path '{0}'</value>
+  </data>
+  <data name="ReferenceAssemblyNotFound" xml:space="preserve">
+    <value>Reference assembly '{0}' specified in response file '{1}' was not found in response file directory, .NET reference assembly directory, .NET install path or CLR install path.</value>
+  </data>
+  <data name="TemporaryFileDirectory" xml:space="preserve">
+    <value>Temporary file directory '{0}'</value>
+  </data>
+  <data name="Found" xml:space="preserve">
+    <value>found</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>not found</value>
+  </data>
+  <data name="CombinedResponseFile" xml:space="preserve">
+    <value>Combined response file '{0}'</value>
+  </data>
+  <data name="ScriptsRequiredRuntimeAndFrameworkNotInstalled" xml:space="preserve">
+    <value>Scripts required runtime ({0}) and .NET framework ({1}) are not installed.</value>
+  </data>
+  <data name="Referencing" xml:space="preserve">
+    <value>Referencing assembly '{0}'</value>
+  </data>
+  <data name="RuntimeVersion" xml:space="preserve">
+    <value>Process running {0} CLR {1}.</value>
+  </data>
+  <data name="WordSize32" xml:space="preserve">
+    <value>32-bit</value>
+  </data>
+  <data name="WordSize64" xml:space="preserve">
+    <value>64-bit</value>
+  </data>
+</root>

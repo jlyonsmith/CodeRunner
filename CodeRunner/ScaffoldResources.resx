@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlreadyExists" xml:space="preserve">
+    <value>File '{0}' already exists</value>
+  </data>
+  <data name="CouldNotBeDeleted" xml:space="preserve">
+    <value>File '{0}' could not be deleted</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>File '{0}' created</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>File '{0}' was deleted</value>
+  </data>
+  <data name="DirectoryDoesNotExist" xml:space="preserve">
+    <value>Directory '{0}' does not exist</value>
+  </data>
+  <data name="FileCouldNotBeUpdated" xml:space="preserve">
+    <value>Program response file '{0}' could not be updated</value>
+  </data>
+  <data name="FileNameMustEndIn" xml:space="preserve">
+    <value>The file name must end in .cs or .csr</value>
+  </data>
+  <data name="HelpSwitchDescription" xml:space="preserve">
+    <value>Displays this help</value>
+  </data>
+  <data name="NoEmptyFilename" xml:space="preserve">
+    <value>The file name cannot be empty.</value>
+  </data>
+  <data name="NoSourceSpecified" xml:space="preserve">
+    <value>No source file was specified.</value>
+  </data>
+  <data name="NoSourceWildcards" xml:space="preserve">
+    <value>Wildcards cannot be specified for the source file.</value>
+  </data>
+  <data name="ScriptTemplateSwitchDescription" xml:space="preserve">
+    <value>Specifies a template source file to use if the given script file does not exist</value>
+  </data>
+  <data name="ScriptTemplateSwitchHint" xml:space="preserve">
+    <value>&lt;template-file&gt;</value>
+  </data>
+  <data name="ScriptSwitch" xml:space="preserve">
+    <value>script-name</value>
+  </data>
+  <data name="ScriptSwitchHint" xml:space="preserve">
+    <value>&lt;script-name&gt;</value>
+  </data>
+  <data name="StartingVS" xml:space="preserve">
+    <value>Starting Visual Studio</value>
+  </data>
+  <data name="SubDirDeleted" xml:space="preserve">
+    <value>Sub-directory '{0}' was deleted</value>
+  </data>
+  <data name="SubDirNotDeleted" xml:space="preserve">
+    <value>Sub-directory '{0}' was not deleted</value>
+  </data>
+  <data name="UnableToStartVS" xml:space="preserve">
+    <value>Unable to start Visual Studio</value>
+  </data>
+  <data name="VerboseSwitch" xml:space="preserve">
+    <value>verbose</value>
+  </data>
+  <data name="VerboseSwitchDescription" xml:space="preserve">
+    <value>Displays verbose program execution information</value>
+  </data>
+  <data name="VSDidNotStart" xml:space="preserve">
+    <value>Visual Studio did not start</value>
+  </data>
+  <data name="VSNotInstalled" xml:space="preserve">
+    <value>A supported version of Visual Studio is not installed.  Supported versions are {0}.</value>
+  </data>
+  <data name="WaitingForVS" xml:space="preserve">
+    <value>Waiting for Visual Studio to exit</value>
+  </data>
+  <data name="ApplicationConfigurationCouldNotBeLoaded" xml:space="preserve">
+    <value>Application configuration could not be loaded</value>
+  </data>
+  <data name="CopyrightJohnLyonSmith" xml:space="preserve">
+    <value>Copyright (c) 2010 John Lyon-Smith. All rights reserved.</value>
+  </data>
+  <data name="ProblemLoadingExeConfiguration" xml:space="preserve">
+    <value>Problem loading program configuration - {0}</value>
+  </data>
+  <data name="ScaffoldDescription" xml:space="preserve">
+    <value>This program constructs a scaffold project in a temporary directory under the source file directory, and then starts Visual Studio to work on the project.  When Visual Studio is closed the scaffolding is removed.</value>
+  </data>
+  <data name="ScaffoldSectionPresentButWrongType" xml:space="preserve">
+    <value>Scaffold section is present in .config file but is of the wrong type.  Make sure you have specified the correct configSections/section as the first entry in the .config file.</value>
+  </data>
+  <data name="ScaffoldTitle" xml:space="preserve">
+    <value>Visual Studio Project Scaffolding Erector</value>
+  </data>
+  <data name="UnableToParseValueInConfig" xml:space="preserve">
+    <value>Unable to parse value '{0}' for setting '{1}' in .config</value>
+  </data>
+  <data name="False" xml:space="preserve">
+    <value>false</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>no</value>
+  </data>
+  <data name="True" xml:space="preserve">
+    <value>true</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>yes</value>
+  </data>
+  <data name="OnlyCSharpSourcesSupported" xml:space="preserve">
+    <value>Only C# source files are currently supported.</value>
+  </data>
+  <data name="WaitSwitchDescription" xml:space="preserve">
+    <value>Wait for the Visual Studio process to finish.  Normally a separate process is started to clean up temporary files after Visual Studio has closed so the the current process is not blocked.</value>
+  </data>
+  <data name="ScaffoldDidNotStart" xml:space="preserve">
+    <value>Scaffold did not start</value>
+  </data>
+  <data name="UnableToStartScaffold" xml:space="preserve">
+    <value>Unable to start Scaffold - {0}</value>
+  </data>
+  <data name="UnableToParseValueInEnvironment" xml:space="preserve">
+    <value>Unable to parse value '{0}' for setting '{1}' in environment variable SCAFFOLD_CONFIG.</value>
+  </data>
+  <data name="UnableToRemoveProjectMruInformation" xml:space="preserve">
+    <value>Unable to remove Scaffold project from VS MRU list.</value>
+  </data>
+  <data name="ScriptsRequiredClrFxAndVsNotInstalled" xml:space="preserve">
+    <value>The scripts requested .NET runtime ({0}) .NET framework ({1}) and Visual Studio ({2}) are not all installed.</value>
+  </data>
+  <data name="RuntimeNotInstalled" xml:space="preserve">
+    <value>A valid .NET runtime is not installed. Valid runtime versions are {0}.</value>
+  </data>
+</root>

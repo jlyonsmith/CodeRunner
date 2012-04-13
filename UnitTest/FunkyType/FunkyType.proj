@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+	<PropertyGroup>
+		<KeyFile>FunkyType.snk</KeyFile>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<Compile Include="1.0\FunkyType.cs" />
+		<Compile Include="2.0\FunkyType.cs" />
+	</ItemGroup>
+	
+	<Target Name="Build" Inputs="@(Compile)" Outputs="@(Compile->'%(RelativeDir)%(Filename).dll')">
+		<Csc Sources="%(Compile.Identity)" OutputAssembly="%(Compile.RelativeDir)%(Compile.Filename).dll" TargetType="library" KeyFile="$(KeyFile)"/>
+	</Target>
+
+	<Target Name="Clean">
+		<Delete Files="@(Compile->'%(RelativeDir)%(Filename).dll')"/>
+	</Target>
+	
+	<Target Name="Rebuild" DependsOnTargets="Clean;Build"/>
+</Project>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) Microsoft Corporation.  All rights reserved.
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment Id="UIFragment">
+    <UI Id="CodeRunnerUI">
+      <Property Id="ErrorDialog" Value="ErrorDialog" />
+      <Property Id="DefaultUIFont" Value="DlgFont" />
+      <Dialog Id="FirstInstallDialog" Width="373" Height="286" Title="[ProductName] Setup">
+        <Control Type="Bitmap" Width="373" Height="51" X="0" Y="0" Id="Banner" Text="BannerBmp" />
+        <Control Type="Line" Width="375" Height="2" X="0" Y="51" Id="TopLine" />
+        <Control Type="Line" Width="375" Height="2" X="0" Y="251" Id="BottomLine" />
+        <Control Type="PushButton" Width="65" Height="19" X="300" Y="259" Id="Install" Default="yes" Text="&amp;Install">
+          <Publish Event="EndDialog" Value="Return" />
+        </Control>
+        <Control Type="PushButton" Width="65" Height="19" X="229" Y="259" Id="Cancel" Cancel="yes" Text="&amp;Cancel">
+          <Publish Event="EndDialog" Value="Exit">1</Publish>
+        </Control>
+        <Control Type="ScrollableText" Width="356" Height="140" X="8" Y="64" Id="InstallMessage" TabSkip="no" Sunken="yes">
+          <Text SourceFile="message.rtf" />
+        </Control>
+        <Control Type="Text" Width="88" Height="11" X="9" Y="212" Id="InstallDirCaption" Text="Installation Directory:" />
+        <Control Type="Text" Width="356" Height="15" X="9" Y="229" Id="InstallDir" Text="[CodeRunnerFolder]" />
+      </Dialog>
+      <Dialog Id="ProgressDialog" Width="373" Height="286" Title="[ProductName] Setup" Modeless="yes">
+        <Control Type="Bitmap" Width="373" Height="51" X="0" Y="0" Id="Banner" Text="BannerBmp" />
+        <Control Type="Line" Width="375" Height="2" X="0" Y="51" Id="TopLine" />
+        <Control Type="Line" Width="375" Height="2" X="0" Y="251" Id="BottomLine" />
+        <Control Id="ActionData" Type="Text" X="15" Y="195" Width="344" Height="12" TabSkip="no">
+          <Subscribe Event="ActionData" Attribute="Text" />
+        </Control>
+        <Control Id="ActionText" Type="Text" X="15" Y="165" Width="344" Height="12">
+          <Subscribe Event="ActionText" Attribute="Text" />
+        </Control>
+        <Control Id="ProgressBar" Type="ProgressBar" X="11" Y="225" Width="350" Height="16" ProgressBlocks="yes" Text="Progress done">
+          <Subscribe Event="SetProgress" Attribute="Progress" />
+        </Control>
+      </Dialog>
+      <Dialog Id="FilesInUse" Width="373" Height="286" Title="[ProductName] - Files In Use" KeepModeless="yes">
+        <Control Type="Bitmap" Width="373" Height="51" X="0" Y="0" Id="Banner" Text="BannerBmp" />
+        <Control Type="Line" Width="375" Height="2" X="0" Y="51" Id="TopLine" />
+        <Control Type="Line" Width="375" Height="2" X="0" Y="251" Id="BottomLine" />
+        <Control Id="Exit" Type="PushButton" Width="65" Height="19" X="158" Y="259" Cancel="yes" Text="&amp;Exit">
+          <Publish Event="EndDialog" Value="Exit">1</Publish>
+        </Control>
+        <Control Id="Retry" Type="PushButton" Width="65" Height="19" X="229" Y="259" Default="yes" Text="&amp;Retry">
+          <Publish Event="EndDialog" Value="Retry">1</Publish>
+        </Control>
+        <Control Id="Ignore" Type="PushButton" Width="65" Height="19" X="300" Y="259" Text="&amp;Ignore">
+          <Publish Event="EndDialog" Value="Ignore">1</Publish>
+        </Control>
+        <Control Id="Text" Type="Text" X="8" Y="64" Width="350" Height="11" TabSkip="yes">
+          <Text><![CDATA[The &following applications should be closed before continuing the install:]]></Text>
+        </Control>
+        <Control Id="List" Type="ListBox" X="8" Y="82" Width="356" Height="149" Property="FileInUseProcess" Sunken="yes" />
+      </Dialog>
+      <Dialog Id="ErrorDialog" Width="280" Height="190" Title="Installation Problem" ErrorDialog="yes">
+        <Control Id="ErrorText" Type="Text" X="15" Y="19" Width="248" Height="125" TabSkip="no" />
+        <Control Id="Y" Type="PushButton" X="100" Y="160" Width="80" Height="18" TabSkip="yes" Text="&amp;Yes">
+          <Publish Event="EndDialog" Value="ErrorYes">1</Publish>
+        </Control>
+        <Control Id="A" Type="PushButton" X="100" Y="160" Width="80" Height="18" TabSkip="yes" Text="&amp;Cancel">
+          <Publish Event="EndDialog" Value="ErrorAbort">1</Publish>
+        </Control>
+        <Control Id="C" Type="PushButton" X="100" Y="160" Width="80" Height="18" TabSkip="yes" Text="&amp;Cancel">
+          <Publish Event="EndDialog" Value="ErrorCancel">1</Publish>
+        </Control>
+        <Control Id="I" Type="PushButton" X="100" Y="160" Width="80" Height="18" TabSkip="yes" Text="&amp;Ignore">
+          <Publish Event="EndDialog" Value="ErrorIgnore">1</Publish>
+        </Control>
+        <Control Id="N" Type="PushButton" X="100" Y="160" Width="80" Height="18" TabSkip="yes" Text="&amp;No">
+          <Publish Event="EndDialog" Value="ErrorNo">1</Publish>
+        </Control>
+        <Control Id="O" Type="PushButton" X="100" Y="160" Width="80" Height="18" TabSkip="yes" Text="&amp;OK">
+          <Publish Event="EndDialog" Value="ErrorOk">1</Publish>
+        </Control>
+        <Control Id="R" Type="PushButton" X="100" Y="160" Width="80" Height="18" TabSkip="yes" Text="&amp;Retry">
+          <Publish Event="EndDialog" Value="ErrorRetry">1</Publish>
+        </Control>
+      </Dialog>
+      <Dialog Id="FatalError" Width="280" Height="190" Title="Fatal Error">
+        <Control Id="Rollback" Type="PushButton" X="100" Y="160" Width="80" Height="18" Default="yes" Cancel="yes" Text="&amp;Rollback">
+          <Publish Property="Suspend" Value="{}">1</Publish>
+          <Publish Event="EndDialog" Value="Return">1</Publish>
+          <Condition Action="hide">NOT UpdateStarted</Condition>
+          <Condition Action="show">UpdateStarted</Condition>
+          <Condition Action="default">UpdateStarted</Condition>
+        </Control>
+        <Control Id="OK" Type="PushButton" X="100" Y="160" Width="80" Height="18" Text="&amp;OK">
+          <Publish Event="EndDialog" Value="Exit">1</Publish>
+          <Condition Action="hide">UpdateStarted</Condition>
+          <Condition Action="show">NOT UpdateStarted</Condition>
+          <Condition Action="default">NOT UpdateStarted</Condition>
+        </Control>
+        <Control Id="Text" Type="Text" X="15" Y="19" Width="248" Height="125">
+          <Text>Installation ended prematurely because of an error. </Text>
+        </Control>
+      </Dialog>
+      <Dialog Id="UserExit" Width="280" Height="190" Title="Installation Stopped">
+        <Control Id="Rollback" Type="PushButton" X="100" Y="160" Width="80" Height="18" Default="yes" Cancel="yes">
+          <Text>&amp;Rollback</Text>
+          <Publish Property="Suspend" Value="{}">1</Publish>
+          <Publish Event="EndDialog" Value="Return">1</Publish>
+          <Condition Action="hide">NOT UpdateStarted</Condition>
+          <Condition Action="show">UpdateStarted</Condition>
+          <Condition Action="default">UpdateStarted</Condition>
+        </Control>
+        <Control Id="OK" Type="PushButton" X="100" Y="160" Width="80" Height="18" Text="&amp;OK">
+          <Publish Event="EndDialog" Value="Exit">1</Publish>
+          <Condition Action="hide">UpdateStarted</Condition>
+          <Condition Action="show">NOT UpdateStarted</Condition>
+          <Condition Action="default">NOT UpdateStarted</Condition>
+        </Control>
+        <Control Id="Text" Type="Text" X="15" Y="19" Width="248" Height="125">
+          <Text><![CDATA[You requested that the installation of [ProductName] be stopped.]]></Text>
+        </Control>
+      </Dialog>
+      <Dialog Id="ExitDialog" Width="373" Height="286" Title="[ProductName] Setup">
+        <Control Type="Bitmap" Width="373" Height="51" X="0" Y="0" Id="Banner" Text="BannerBmp" />
+        <Control Type="Line" Width="375" Height="2" X="0" Y="51" Id="TopLine" />
+        <Control Type="Line" Width="375" Height="2" X="0" Y="251" Id="BottomLine" />
+        <Control Id="Message" Type="Text" X="11" Y="68" Width="344" Height="167">
+          <Text><![CDATA[The installation of [ProductName] has completed successfully.]]></Text>
+        </Control>
+        <Control Type="PushButton" Width="65" Height="19" X="300" Y="259" Id="Install" Default="yes" Text="&amp;OK">
+          <Publish Event="EndDialog" Value="Return" />
+        </Control>
+      </Dialog>
+      <TextStyle Id="DlgFont" FaceName="Tahoma" Size="8" />
+      <InstallUISequence>
+        <Show Dialog="FatalError" OnExit="error" />
+        <Show Dialog="UserExit" OnExit="cancel" />
+        <Show Dialog="ExitDialog" OnExit="success" />
+        <Show Dialog="FirstInstallDialog" After="CostFinalize">NOT Installed</Show>
+        <Show Dialog="ProgressDialog" After="FirstInstallDialog" />
+      </InstallUISequence>
+      <AdminUISequence>
+        <Show Dialog="FatalError" OnExit="error" />
+        <Show Dialog="UserExit" OnExit="cancel" />
+        <Show Dialog="ExitDialog" OnExit="success" />
+      </AdminUISequence>
+    </UI>
+    <Binary Id="BannerBmp" SourceFile="CodeRunner.bmp" />
+  </Fragment>
+</Wix>

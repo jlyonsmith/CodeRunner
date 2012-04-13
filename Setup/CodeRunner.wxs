@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Copyright (c) John Lyon-Smith.  All rights reserved.
+-->
+<?include CodeRunner.wxi ?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
+  <Product 
+    Id="*" 
+    Language="1033" 
+    Manufacturer="John Lyon-Smith" 
+    Name="Code Runner .NET $(var.CodeRunnerVersion)$(var.SpaceParenDebug)" 
+    Version="$(var.CodeRunnerVersion).$(var.CodeRunnerBuild)" 
+    UpgradeCode="35ED4D41-BA5F-4598-8266-A1B9EB554243">
+    <Package 
+      InstallerVersion="200" 
+      Manufacturer="John Lyon-Smith" 
+      Description="Code Runner .NET $(var.CodeRunnerVersion)" 
+      Comments="Installs Code Runner .NET" 
+      Compressed="yes"/>
+    <Condition Message="A Windows NT based O/S is required.">VersionNT</Condition>
+
+    <Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
+
+    <Upgrade Id="35ED4D41-BA5F-4598-8266-A1B9EB554243">
+      <UpgradeVersion Minimum="$(var.CodeRunnerVersion).$(var.CodeRunnerBuild)" OnlyDetect="yes" Property="NEWERVERSIONDETECTED"/>
+      <UpgradeVersion Minimum="1.0.0" IncludeMinimum="yes" Maximum="$(var.CodeRunnerVersion).$(var.CodeRunnerBuild)" 
+        IncludeMaximum="no" Property="OLDERVERSIONBEINGUPGRADED" OnlyDetect="no"/>
+    </Upgrade>
+
+    <Condition Message="A newer version of [ProductName] is already installed.">NOT NEWERVERSIONDETECTED</Condition>
+
+		<Property Id="VS90_INSTALLED">
+			<RegistrySearch Id="SearchForVisualStudio90" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\9.0" Name="InstallDir" Type="raw"/>
+		</Property>
+
+		<Property Id="VS100_INSTALLED">
+			<RegistrySearch Id="SearchForVisualStudio100" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0" Name="InstallDir" Type="raw"/>
+		</Property>
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="PFiles">
+        <Directory Id="CodeRunnerFolder" Name="Code Runner .NET">
+          <Component Id="ResourceDllComponent" Guid="442411ED-B511-42B0-B5F6-66FD2064FA86" DiskId="1">
+            <File Id="CodeRunnerIconsDllFile" Name="CodeRunnerIcons.dll" Source="$(var.CodeRunnerIconsDir)CodeRunnerIcons.dll" KeyPath="yes"/>
+          </Component>
+          <Component Id="UtilityAssemblyComponent" Guid="2F352A6E-C3FA-4696-AF16-2CFFB736D0CA" DiskId="1">
+            <File Id="CodeRunnerDllFile" Name="CodeRunner.dll" Source="$(var.CodeRunnerDir)CodeRunner.dll" KeyPath="yes">
+              <?if $(var.Configuration) != "Debug" ?>
+              <netfx:NativeImage Id="UtilityAssemblyNativeImage" Platform="32bit" Priority="0"/>
+              <?endif?>
+            </File>
+          </Component>
+					<Component Id="ToolBeltAssemblyComponent" Guid="45FBD81E-1427-44A5-9A3C-0BBD84EB016E" DiskId="1">
+						<File Id="ToolBeltDllFile" Name="ToolBelt.dll" Source="$(var.CodeRunnerDir)ToolBelt.dll" KeyPath="yes">
+							<?if $(var.Configuration) != "Debug" ?>
+							<netfx:NativeImage Id="ToolBeltAssemblyNativeImage" Platform="32bit" Priority="0"/>
+							<?endif?>
+						</File>
+					</Component>
+					<Component Id="CSharpRunnerComponent" Guid="13E1E50F-1000-4126-B8DD-CDB54B2F9A42">
+            <File Id="CsrExeFile" Name="Csr.exe" Source="$(var.CsrDir)Csr.exe" DiskId="1" KeyPath="yes" >
+              <?if $(var.Configuration) != "Debug" ?>
+              <netfx:NativeImage Id="CsrNativeImage" Platform="32bit" Priority="0"/>
+              <?endif?>
+            </File>
+            <File Id="CsrExeConfigFile" Name="Csr.exe.config" DiskId="1" Source="$(var.CsrDir)Csr.exe.config"/>
+            <Environment Id="PathEnvironment" Name="PATH" Action="set" Permanent="no" Part="last" System="yes" Value="[CodeRunnerFolder]"/>
+            <Environment Id="PathExtEnvironment" Name="PATHEXT" Action="set" Permanent="no" Part="last" System="yes" Value=".CSR"/>
+          </Component>
+          <Component Id="ScaffoldComponent" Guid="E768F387-9248-471A-BD11-42EDE63DA98B">
+            <File Id="ScaffoldExeFile" Name="Scaffold.exe" DiskId="1" Source="$(var.ScaffoldDir)Scaffold.exe">
+              <?if $(var.Configuration) != "Debug" ?>
+              <netfx:NativeImage Id="ScaffoldNativeImage" Platform="32bit" Priority="0"/>
+              <?endif?>
+            </File>
+            <File Id="ScaffoldExeConfigFile" Name="Scaffold.exe.config" DiskId="1" Source="$(var.ScaffoldDir)Scaffold.exe.config"/>
+          </Component>
+          <Component Id="RegistryComponent" Guid="8EAB948A-1AB7-4D50-BA3C-02D03A750D9A">
+            <!-- Add file associations for .csr files -->
+            <RegistryKey Id="RegKey0" Root="HKCR" Key=".csr" Action="createAndRemoveOnUninstall"/>
+            <RegistryKey Id="RegKey1" Root="HKCR" Key=".csr\PersistentHandler" Action="createAndRemoveOnUninstall"/>
+            <RegistryKey Id="RegKey2" Root="HKCR" Key="CSRFile" Action="createAndRemoveOnUninstall"/>
+            <RegistryKey Id="RegKey3" Root="HKCR" Key="CSRFile\Shell" Action="createAndRemoveOnUninstall"/>
+            <RegistryKey Id="RegKey4" Root="HKCR" Key="CSRFile\Shell\Open" Action="createAndRemoveOnUninstall"/>
+            <RegistryKey Id="RegKey5" Root="HKCR" Key="CSRFile\Shell\Open\Command" Action="createAndRemoveOnUninstall"/>
+            <RegistryKey Id="RegKey6" Root="HKCR" Key="CSRFile\DefaultIcon" Action="createAndRemoveOnUninstall"/>
+            <RegistryValue Id="RegValue0" Root="HKCR" Key=".csr" Value="CSRFile" Type="string" />
+            <RegistryValue Id="RegValue1" Root="HKCR" Key=".csr\PersistentHandler" Value="{5e941d80-bf96-11cd-b579-08002b30bfeb}" Type="string" />
+            <RegistryValue Id="RegValue2" Root="HKCR" Key="CSRFile" Value="Runnable C# Source File" Type="string"/>
+            <RegistryValue Id="RegValue3" Root="HKCR" Key="CSRFile\Shell\Open" Value="&amp;Open in Console" Type="string" />
+            <RegistryValue Id="RegValue4" Root="HKCR" Key="CSRFile\Shell\Open\Command" Value="&quot;[$RegistryComponent]Csr.exe&quot; &quot;%1&quot; %*" Type="expandable" />
+            <!-- See the MSDN and ExtractIcon API for a definition of this entry.  Negative numbers indicate a resource ID -->
+            <RegistryValue Id="RegValue5" Root="HKCR" Key="CSRFile\DefaultIcon" Value="&quot;[$RegistryComponent]CodeRunnerIcons.dll&quot;,-101" Type="string" />
+          </Component>
+
+          <!-- These registry entries make .csr files editable like C# files under VS -->
+
+          <Component Id="VisualStudioComponent90" Guid="6F5075EF-E761-4750-BB01-613FC4ADC4DC">
+            <Condition>VS90_INSTALLED</Condition>
+            <RegistryKey Id="RegKey21" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\9.0\Languages\File Extensions\.csr" Action="createAndRemoveOnUninstall"/>
+            <RegistryValue Id="RegValue22" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\9.0\Languages\File Extensions\.csr" Value="{694DD9B6-B865-4C5B-AD85-86356E9C88DC}" Type="string" />
+          </Component>
+
+					<Component Id="VisualStudioComponent100" Guid="16EC3DFD-21B4-43BF-95A0-B94BF4A11848">
+						<Condition>VS100_INSTALLED</Condition>
+						<RegistryKey Id="RegKey23" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0\Languages\File Extensions\.csr" Action="createAndRemoveOnUninstall"/>
+						<RegistryValue Id="RegValue24" Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0\Languages\File Extensions\.csr" Value="{694DD9B6-B865-4C5B-AD85-86356E9C88DC}" Type="string" />
+					</Component>
+				</Directory>
+
+			</Directory>
+    </Directory>
+
+    <Feature Id="MainProductFeature" Title="Main Product Feature" Level="1">
+      <ComponentRef Id="ResourceDllComponent"/>
+			<ComponentRef Id="UtilityAssemblyComponent"/>
+			<ComponentRef Id="ToolBeltAssemblyComponent"/>
+			<ComponentRef Id="CSharpRunnerComponent"/>
+      <ComponentRef Id="ScaffoldComponent"/>
+      <ComponentRef Id="RegistryComponent"/>
+			<ComponentRef Id="VisualStudioComponent90"/>
+			<ComponentRef Id="VisualStudioComponent100"/>
+		</Feature>
+
+    <UIRef Id="CodeRunnerUI"/>
+
+    <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize" />
+    </InstallExecuteSequence>
+
+  </Product>
+</Wix>
